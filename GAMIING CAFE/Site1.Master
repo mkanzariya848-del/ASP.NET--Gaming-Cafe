@@ -1,0 +1,142 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.Master.cs" Inherits="GAMIING_CAFE.Site1" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <asp:ContentPlaceHolder ID="MetaContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css?v=20261107_1050" />
+
+    <asp:ContentPlaceHolder ID="HeadExtra" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Sticky Navbar Header Container -->
+        <div id="role-indicator-banner"></div>
+        <div id="navbar-container"></div>
+
+        <div class="main-wrapper">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <asp:ContentPlaceHolder ID="FooterContent" runat="server">
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-col">
+                        <div class="navbar-brand" style="margin-bottom: 1rem;">
+                            <div class="brand-icon-wrap"><i class="fa-solid fa-gamepad"></i></div>
+                            <span>CYBER<span class="brand-span">GRID</span></span>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                            Next-gen esports lounge &amp; gaming cafe booking platform. Book high-end PCs and consoles, order food to your desk, and compete in tournaments.
+                        </p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="booking.aspx">Book Station</a></li>
+                            <li><a href="games.aspx">Game Library</a></li>
+                            <li><a href="food.aspx">Cafe &amp; Snacks</a></li>
+                            <li><a href="memberships.aspx">VIP Memberships</a></li>
+                            <li><a href="tournaments.aspx">Tournaments</a></li>
+                            <li><a href="report.aspx">Crystal Reports</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Gaming Arenas</h4>
+                        <ul class="footer-links">
+                            <li><a href="booking.aspx">RTX 5090 VIP Zone</a></li>
+                            <li><a href="booking.aspx">PlayStation 5 Lounges</a></li>
+                            <li><a href="booking.aspx">Xbox Series X Arena</a></li>
+                            <li><a href="booking.aspx">Board &amp; Card Games</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Arena Location</h4>
+                        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.8;">
+                            <i class="fa-solid fa-location-dot" style="color: var(--accent-primary); margin-right: 8px;"></i> CyberGrid Esports Arena, MG Road<br />
+                            <i class="fa-solid fa-clock" style="color: var(--accent-primary); margin-right: 8px;"></i> Open 24/7 (365 Days)<br />
+                            <i class="fa-solid fa-phone" style="color: var(--accent-primary); margin-right: 8px;"></i> +91 98765 43210
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    &copy; 2026 CyberGrid Gaming Cafe. All rights reserved.
+                </div>
+            </footer>
+        </asp:ContentPlaceHolder>
+
+        <!-- Core Data & App Scripts (every page needs these) -->
+        <script src="js/data.js?v=20261018_1130"></script>
+        <script src="js/app.js?v=20261018_1130"></script>
+
+        <% if (Session["user"] != null && Session["email"] != null) { %>
+        <script>
+            (function() {
+                try {
+                    const sEmail = '<%= Session["email"] %>';
+                    const sName = '<%= Session["user"] %>';
+                    const sRole = '<%= Session["role"] != null ? Session["role"].ToString().ToLower() : "customer" %>';
+                    let d = getCafeData();
+                    if (!d.users) d.users = [];
+                    let u = d.users.find(x => x.email.toLowerCase() === sEmail.toLowerCase());
+                    if (!u) {
+                        u = {
+                            id: 'USR-' + Date.now(),
+                            name: sName,
+                            email: sEmail,
+                            role: sRole,
+                            membershipTier: 'Gold VIP',
+                            rewardPoints: 100
+                        };
+                        d.users.push(u);
+                    } else {
+                        u.name = sName;
+                        u.role = sRole;
+                    }
+                    d.activeSession = {
+                        isLoggedIn: true,
+                        userEmail: sEmail
+                    };
+                    d.currentUserRole = sRole;
+                    saveCafeData(d);
+                    renderNavbar();
+                } catch(e) {}
+            })();
+        </script>
+        <% } else { %>
+        <script>
+            (function() {
+                try {
+                    let d = getCafeData();
+                    if (d && d.activeSession && d.activeSession.isLoggedIn) {
+                        d.activeSession = { isLoggedIn: false, userEmail: null };
+                        saveCafeData(d);
+                        if (typeof renderNavbar === 'function') renderNavbar();
+                    }
+                } catch(e) {}
+            })();
+        </script>
+        <% } %>
+
+        <asp:ContentPlaceHolder ID="ScriptsExtra" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
