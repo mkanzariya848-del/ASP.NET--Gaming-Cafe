@@ -85,6 +85,31 @@ namespace GAMIING_CAFE
 
         protected void btnConfirmBooking_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtCustomerName.Text.Trim()))
+            {
+                Response.Write("<script>alert('Please enter customer name');</script>");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtDate.Text))
+            {
+                Response.Write("<script>alert('Please select booking date');</script>");
+                return;
+            }
+
+            getcon();
+            string customerName = txtCustomerName.Text.Trim();
+            string stationName = drpStation.SelectedItem.Text;
+            string bookingDate = txtDate.Text;
+            string timeSlot = drpTimeSlot.SelectedValue;
+            int hours = Convert.ToInt32(drpDuration.SelectedValue);
+            int total = Convert.ToInt32(lblTotalAmount.Text);
+
+            cmd = new SqlCommand("insert into tbl_booking(user_name,station_name,booking_date,time_slot,duration_hours,total_amount,status) values('" + customerName + "','" + stationName + "','" + bookingDate + "','" + timeSlot + "'," + hours + "," + total + ",'Confirmed')", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            Response.Write("<script>alert('Booking successfully confirmed for " + stationName + "!');window.location='customer-dashboard.aspx';</script>");
         }
     }
 }
