@@ -66,6 +66,18 @@ namespace GAMIING_CAFE
 
         protected void rptFood_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            if (e.CommandName == "cmd_order")
+            {
+                if (Session["user"] == null)
+                {
+                    Response.Write("<script>alert('Please Login first to place a food order!');window.location='login.aspx';</script>");
+                }
+                else
+                {
+                    string foodName = e.CommandArgument.ToString();
+                    Response.Write("<script>alert('Order placed successfully for " + foodName + "! Kitchen will deliver it to your station.');</script>");
+                }
+            }
         }
     }
 }
