@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGrid - Clean Modern Gaming Café & Esports Lounge</title>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <div id="role-indicator-banner"></div>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="section-tag"><i class="fa-solid fa-gamepad"></i> Next-Gen Esports Lounge</span>
+            <h1 class="hero-title">NEXT-GEN <span class="brand-span">GAMING CAFE</span> EXPERIENCE</h1>
+            <p class="hero-subtitle">
+                Book RTX 5090 High-End Gaming PCs, PS5 Consoles, and Classic Offline Games. Order gourmet food directly to your desk with instant QR access.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#booking-section" class="btn-cyber"><i class="fa-solid fa-calendar-check"></i> Book Station Now</a>
+                <a href="#games-section" class="btn-outline"><i class="fa-solid fa-headset"></i> Browse Games</a>
+                <a href="#food-section" class="btn-outline"><i class="fa-solid fa-utensils"></i> Cafe Menu</a>
+                <a href="#memberships-section" class="btn-outline"><i class="fa-solid fa-crown text-yellow"></i> VIP Perks</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Device Availability Bar -->
+    <div class="live-counter-bar">
+        <div class="counter-card">
+            <div class="counter-icon"><i class="fa-solid fa-desktop"></i></div>
+            <div>
+                <div class="counter-num text-cyan" id="count-pc-avail">12</div>
+                <div class="counter-label"><span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block; margin-right: 5px;"></span>Online PCs Available</div>
+            </div>
+        </div>
+
+        <div class="counter-card">
+            <div class="counter-icon" style="background: rgba(139, 92, 246, 0.12); border-color: rgba(139, 92, 246, 0.25); color: var(--accent-purple);"><i class="fa-solid fa-gamepad"></i></div>
+            <div>
+                <div class="counter-num text-purple" id="count-console-avail">6</div>
+                <div class="counter-label"><span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block; margin-right: 5px;"></span>Consoles Available</div>
+            </div>
+        </div>
+
+        <div class="counter-card">
+            <div class="counter-icon" style="background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.25); color: var(--accent-amber);"><i class="fa-solid fa-chess"></i></div>
+            <div>
+                <div class="counter-num text-yellow" id="count-offline-avail">4</div>
+                <div class="counter-label"><span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block; margin-right: 5px;"></span>Offline Tables Ready</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gaming Categories Section -->
+    <section class="section">
+        <div class="section-title-wrap">
+            <span class="section-tag">Choose Your Battleground</span>
+            <h2 class="section-title">GAMING CATEGORIES</h2>
+        </div>
+
+        <div class="grid-3">
+            <div class="glass-card">
+                <div style="font-size: 2.2rem; color: var(--accent-primary); margin-bottom: 1rem;"><i class="fa-solid fa-desktop"></i></div>
+                <h3 style="margin-bottom: 0.5rem;">Online Gaming PCs</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.92rem;">
+                    Intel i9 14900K, RTX 5090 graphics, 360Hz ROG gaming displays, mechanical switches, and ultra-low latency fiber internet.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--text-main);">From &#8377;100<span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">/hr</span></span>
+                    <a href="#booking-section" class="btn-cyber" style="padding: 6px 16px; font-size: 0.85rem;">Book PC</a>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div style="font-size: 2.2rem; color: var(--accent-purple); margin-bottom: 1rem;"><i class="fa-solid fa-gamepad"></i></div>
+                <h3 style="margin-bottom: 0.5rem;">Console Gaming Lounges</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.92rem;">
+                    PlayStation 5, Xbox Series X, Nintendo Switch on 75" 4K 120Hz OLED TVs with plush leather recliners & surround sound.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--text-main);">From &#8377;140<span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">/hr</span></span>
+                    <a href="#booking-section" class="btn-cyber" style="padding: 6px 16px; font-size: 0.85rem; background: var(--accent-purple);">Book Console</a>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div style="font-size: 2.2rem; color: var(--accent-amber); margin-bottom: 1rem;"><i class="fa-solid fa-chess"></i></div>
+                <h3 style="margin-bottom: 0.5rem;">Offline Board Games</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.92rem;">
+                    Professional Carrom, Staunton Chess, Foosball, Table Tennis, UNO, Monopoly, and Jenga tables for group leisure.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--text-main);">From &#8377;50<span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">/hr</span></span>
+                    <a href="#booking-section" class="btn-outline" style="padding: 6px 16px; font-size: 0.85rem;">Book Table</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured PCs & Consoles Showcase -->
+    <section class="section" style="background: rgba(17, 23, 38, 0.4); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+        <div class="section-title-wrap">
+            <span class="section-tag">Rig Specifications & Pricing</span>
+            <h2 class="section-title">FEATURED GAMING STATIONS</h2>
+        </div>
+
+        <div class="grid-3">
+            <!-- High End PC -->
+            <div class="glass-card">
+                <img src="assets/images/pc_01.jpg" class="device-card-img" alt="High End PC" onerror="this.src='assets/images/pc_lounge.png';">
+                <span class="badge-status status-available">VIP RGB ZONE A</span>
+                <h3 style="margin-top: 10px; font-size: 1.15rem;">High-End Gaming PC</h3>
+                <ul class="device-specs-list">
+                    <li><i class="fa-solid fa-microchip" style="color: var(--accent-primary);"></i> Intel Core i9 14900K</li>
+                    <li><i class="fa-solid fa-memory" style="color: var(--accent-purple);"></i> RTX 5090 + 64GB DDR5 RAM</li>
+                    <li><i class="fa-solid fa-tv" style="color: var(--accent-cyan);"></i> 360Hz ROG Swift Monitor</li>
+                </ul>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+                    <div class="device-price">&#8377;250<span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">/hr</span></div>
+                    <a href="#booking-section" class="btn-cyber" style="font-size: 0.85rem; padding: 6px 16px;">Reserve</a>
+                </div>
+            </div>
+
+            <!-- Mid Level PC -->
+            <div class="glass-card">
+                <img src="assets/images/pc_03.jpg" class="device-card-img" alt="Mid Level PC" onerror="this.src='assets/images/pc_lounge.png';">
+                <span class="badge-status status-available">MAIN ARENA ZONE B</span>
+                <h3 style="margin-top: 10px; font-size: 1.15rem;">Mid-Level Gaming PC</h3>
+                <ul class="device-specs-list">
+                    <li><i class="fa-solid fa-microchip" style="color: var(--accent-primary);"></i> Intel Core i5 13600K</li>
+                    <li><i class="fa-solid fa-memory" style="color: var(--accent-purple);"></i> RTX 4060 + 16GB DDR4 RAM</li>
+                    <li><i class="fa-solid fa-tv" style="color: var(--accent-cyan);"></i> 165Hz Curved Monitor</li>
+                </ul>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+                    <div class="device-price">&#8377;150<span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">/hr</span></div>
+                    <a href="#booking-section" class="btn-cyber" style="font-size: 0.85rem; padding: 6px 16px;">Reserve</a>
+                </div>
+            </div>
+
+            <!-- Console Lounge PS5 -->
+            <div class="glass-card">
+                <img src="assets/images/ps5_01.jpg" class="device-card-img" alt="PS5 Lounge" onerror="this.src='assets/images/console_lounge.png';">
+                <span class="badge-status status-available">CONSOLE LOUNGE 1</span>
+                <h3 style="margin-top: 10px; font-size: 1.15rem;">PlayStation 5 Lounge</h3>
+                <ul class="device-specs-list">
+                    <li><i class="fa-solid fa-gamepad" style="color: var(--accent-purple);"></i> DualSense Wireless Controllers</li>
+                    <li><i class="fa-solid fa-tv" style="color: var(--accent-cyan);"></i> 75" 4K 120Hz OLED TV</li>
+                    <li><i class="fa-solid fa-couch" style="color: var(--accent-amber);"></i> Luxury Leather Recliners</li>
+                </ul>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+                    <div class="device-price">&#8377;200<span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">/hr</span></div>
+                    <a href="#booking-section" class="btn-cyber" style="font-size: 0.85rem; padding: 6px 16px; background: var(--accent-purple);">Reserve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Instant Booking Section -->
+    <section class="section" id="booking-section">
+        <div class="section-title-wrap">
+            <span class="section-tag"><i class="fa-solid fa-calendar-check"></i> Instant Reservation</span>
+            <h2 class="section-title">BOOK YOUR GAMING SESSION</h2>
+        </div>
+
+        <div style="max-width: 720px; margin: 0 auto;">
+            <div class="glass-card" style="padding: 2.5rem;">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-gamepad" style="color: var(--accent-primary);"></i> Station Reservation Details
+                </h3>
+
+                <form id="previewBookingForm" onsubmit="event.preventDefault(); handlePreviewBooking();">
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label class="form-label">Customer Full Name *</label>
+                        <input type="text" id="demoCustomerName" class="form-control" placeholder="Enter your full name" required value="Alex Mercer">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label class="form-label">Select Gaming Station / Rig *</label>
+                            <select id="demoStationSelect" class="form-control" onchange="updatePreviewRate()">
+                                <option value="250" data-name="Station Alpha (RTX 5090 VIP)">Station Alpha (RTX 5090 VIP) - ₹250/hr</option>
+                                <option value="150" data-name="Station Beta (RTX 4060 Arena)">Station Beta (RTX 4060 Arena) - ₹150/hr</option>
+                                <option value="200" data-name="PS5 Lounge 1 (75-inch 4K OLED)">PS5 Lounge 1 (75" 4K OLED) - ₹200/hr</option>
+                                <option value="180" data-name="Xbox Series X Lounge">Xbox Series X Lounge - ₹180/hr</option>
+                                <option value="80" data-name="Carrom Arena 1">Carrom Arena 1 - ₹80/hr</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Station Hourly Rate</label>
+                            <div id="demoRateDisplay" style="padding: 10px 14px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 1.05rem; color: var(--text-main); font-weight: 700; height: 45px; display: flex; align-items: center;">
+                                &#8377;250&nbsp;<span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">/ hr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label class="form-label">Booking Date *</label>
+                            <input type="date" id="demoDate" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Select Time Slot *</label>
+                            <select id="demoTimeSlot" class="form-control">
+                                <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                                <option value="12:00 PM - 02:00 PM">12:00 PM - 02:00 PM</option>
+                                <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
+                                <option value="04:00 PM - 06:00 PM" selected>04:00 PM - 06:00 PM</option>
+                                <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM</option>
+                                <option value="08:00 PM - 10:00 PM">08:00 PM - 10:00 PM</option>
+                                <option value="10:00 PM - 12:00 AM">10:00 PM - 12:00 AM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label class="form-label">Session Duration *</label>
+                            <select id="demoDuration" class="form-control" onchange="updatePreviewRate()">
+                                <option value="1">1 Hour</option>
+                                <option value="2" selected>2 Hours</option>
+                                <option value="3">3 Hours</option>
+                                <option value="4">4 Hours</option>
+                                <option value="5">5 Hours</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Total Amount Payable</label>
+                            <div id="demoTotalDisplay" style="padding: 10px 14px; background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: var(--radius-sm); font-size: 1.25rem; color: var(--accent-primary); font-weight: 800; height: 45px; display: flex; align-items: center;">
+                                &#8377;500
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <button type="submit" class="btn-cyber" style="width: 100%; padding: 12px; font-size: 1rem;">
+                            <i class="fa-solid fa-check-circle"></i> Confirm Station Reservation
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gourmet Food & Beverage Highlight -->
+    <section class="section" id="food-section">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
+            <div>
+                <span class="section-tag"><i class="fa-solid fa-utensils"></i> In-Seat Cafe Ordering</span>
+                <h2 class="section-title" style="margin-bottom: 1.2rem;">GOURMET SNACKS & ENERGY BOOSTS</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1.75rem; font-size: 1rem; line-height: 1.7;">
+                    Order hot pepperoni pizza, crispy peri-peri fries, gourmet burgers, cheese maggi, cold coffee, and chilled energy drinks directly to your gaming desk without pausing your match.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="food.aspx" class="btn-cyber"><i class="fa-solid fa-utensils"></i> Explore Full Menu</a>
+                    <a href="memberships.aspx" class="btn-outline"><i class="fa-solid fa-crown text-yellow"></i> Membership Discounts</a>
+                </div>
+            </div>
+            <div>
+                <img src="assets/images/food_pizza.jpg" style="width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border-light); box-shadow: var(--shadow-lg);" alt="Gaming Food Combo" onerror="this.src='assets/images/food_combo.png';">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Data Tables Preview Section (From Admin Dashboard) -->
+    <section class="section" style="padding-top: 1rem;">
+        <div class="section-title-wrap">
+            <span class="section-tag"><i class="fa-solid fa-table"></i> Modern Dashboard Tables</span>
+            <h2 class="section-title">ADMIN & STAFF DATA TABLES</h2>
+        </div>
+
+        <!-- Live Customer Bookings Table from tbl_booking -->
+        <div class="glass-card" style="margin-bottom: 2.5rem;">
+            <div class="table-card-header">
+                <h3 class="table-card-title">
+                    <i class="fa-solid fa-clock-rotate-left" style="color: var(--accent-primary);"></i> Live Customer Bookings (tbl_booking)
+                </h3>
+            </div>
+            <div class="table-responsive">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">Booking #</th>
+                            <th style="min-width: 140px;">Customer Name</th>
+                            <th style="min-width: 180px;">Station</th>
+                            <th style="width: 120px;">Booking Date</th>
+                            <th style="width: 160px;">Time Slot</th>
+                            <th style="width: 100px; text-align: center;">Duration</th>
+                            <th style="width: 110px; text-align: right;">Total Amount</th>
+                            <th style="width: 130px; text-align: center;">Status</th>
+                            <th style="width: 100px; text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge-id">#BK-3</span></td>
+                            <td><strong style="color: #f8fafc;">d</strong></td>
+                            <td><span style="color: #cbd5e1;"><i class="fa-solid fa-gamepad" style="color: var(--accent-primary); margin-right: 6px;"></i>Station Alpha (RTX 4090)</span></td>
+                            <td><span style="color: #94a3b8;"><i class="fa-regular fa-calendar" style="margin-right: 5px;"></i>2026-10-17</span></td>
+                            <td><span style="color: #cbd5e1;"><i class="fa-regular fa-clock" style="margin-right: 5px; color: var(--accent-cyan);"></i>02:00 PM - 04:00 PM</span></td>
+                            <td style="text-align: center;"><span style="font-weight: 600; color: #f8fafc;">5 Hrs</span></td>
+                            <td style="text-align: right;"><strong style="color: #34d399; font-size: 0.95rem;">&#8377;750</strong></td>
+                            <td style="text-align: center;"><span class="status-pill completed">COMPLETED</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Booking #BK-3 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge-id">#BK-2</span></td>
+                            <td><strong style="color: #f8fafc;">Rahul Patel</strong></td>
+                            <td><span style="color: #cbd5e1;"><i class="fa-solid fa-gamepad" style="color: var(--accent-purple); margin-right: 6px;"></i>PS5 Booth 01</span></td>
+                            <td><span style="color: #94a3b8;"><i class="fa-regular fa-calendar" style="margin-right: 5px;"></i>2026-10-15</span></td>
+                            <td><span style="color: #cbd5e1;"><i class="fa-regular fa-clock" style="margin-right: 5px; color: var(--accent-cyan);"></i>04:00 PM</span></td>
+                            <td style="text-align: center;"><span style="font-weight: 600; color: #f8fafc;">1 Hrs</span></td>
+                            <td style="text-align: right;"><strong style="color: #34d399; font-size: 0.95rem;">&#8377;100</strong></td>
+                            <td style="text-align: center;"><span class="status-pill confirmed">CONFIRMED</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Booking #BK-2 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge-id">#BK-1</span></td>
+                            <td><strong style="color: #f8fafc;">Alex Mercer</strong></td>
+                            <td><span style="color: #cbd5e1;"><i class="fa-solid fa-gamepad" style="color: var(--accent-primary); margin-right: 6px;"></i>Station Alpha (RTX 4090)</span></td>
+                            <td><span style="color: #94a3b8;"><i class="fa-regular fa-calendar" style="margin-right: 5px;"></i>2026-10-15</span></td>
+                            <td><span style="color: #cbd5e1;"><i class="fa-regular fa-clock" style="margin-right: 5px; color: var(--accent-cyan);"></i>02:00 PM</span></td>
+                            <td style="text-align: center;"><span style="font-weight: 600; color: #f8fafc;">2 Hrs</span></td>
+                            <td style="text-align: right;"><strong style="color: #34d399; font-size: 0.95rem;">&#8377;300</strong></td>
+                            <td style="text-align: center;"><span class="status-pill confirmed">CONFIRMED</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Booking #BK-1 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Gaming Stations & Rigs Table from tbl_station -->
+        <div class="glass-card">
+            <div class="table-card-header">
+                <h3 class="table-card-title">
+                    <i class="fa-solid fa-boxes-stacked" style="color: var(--accent-primary);"></i> Gaming Stations & Rigs (tbl_station)
+                </h3>
+            </div>
+            <div class="table-responsive">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 110px;">Station #</th>
+                            <th style="min-width: 200px;">Station Name</th>
+                            <th style="min-width: 160px;">Category</th>
+                            <th style="width: 130px; text-align: right;">Hourly Rate</th>
+                            <th style="width: 140px; text-align: center;">Status</th>
+                            <th style="width: 100px; text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge-id">ST-01</span></td>
+                            <td><strong style="color: #f8fafc;"><i class="fa-solid fa-desktop" style="color: var(--accent-primary); margin-right: 6px;"></i>Station Alpha (RTX 4090)</strong></td>
+                            <td><span style="color: #94a3b8;">PC Gaming Zone</span></td>
+                            <td style="text-align: right;"><strong style="color: #f8fafc; font-size: 0.95rem;">&#8377;150</strong><span style="font-size: 0.78rem; color: #94a3b8;">/hr</span></td>
+                            <td style="text-align: center;"><span class="status-pill occupied">OCCUPIED</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Station ST-01 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge-id">ST-02</span></td>
+                            <td><strong style="color: #f8fafc;"><i class="fa-solid fa-desktop" style="color: var(--accent-primary); margin-right: 6px;"></i>Station Bravo (RTX 4080)</strong></td>
+                            <td><span style="color: #94a3b8;">PC Gaming Zone</span></td>
+                            <td style="text-align: right;"><strong style="color: #f8fafc; font-size: 0.95rem;">&#8377;120</strong><span style="font-size: 0.78rem; color: #94a3b8;">/hr</span></td>
+                            <td style="text-align: center;"><span class="status-pill available">AVAILABLE</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Station ST-02 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge-id">ST-03</span></td>
+                            <td><strong style="color: #f8fafc;"><i class="fa-solid fa-gamepad" style="color: var(--accent-purple); margin-right: 6px;"></i>PS5 Booth 01</strong></td>
+                            <td><span style="color: #94a3b8;">PS5 Console Arena</span></td>
+                            <td style="text-align: right;"><strong style="color: #f8fafc; font-size: 0.95rem;">&#8377;100</strong><span style="font-size: 0.78rem; color: #94a3b8;">/hr</span></td>
+                            <td style="text-align: center;"><span class="status-pill available">AVAILABLE</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Station ST-03 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge-id">ST-04</span></td>
+                            <td><strong style="color: #f8fafc;"><i class="fa-solid fa-gamepad" style="color: var(--accent-purple); margin-right: 6px;"></i>PS5 Booth 02</strong></td>
+                            <td><span style="color: #94a3b8;">PS5 Console Arena</span></td>
+                            <td style="text-align: right;"><strong style="color: #f8fafc; font-size: 0.95rem;">&#8377;100</strong><span style="font-size: 0.78rem; color: #94a3b8;">/hr</span></td>
+                            <td style="text-align: center;"><span class="status-pill available">AVAILABLE</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Station ST-04 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge-id">ST-05</span></td>
+                            <td><strong style="color: #f8fafc;"><i class="fa-solid fa-vr-cardboard" style="color: var(--accent-cyan); margin-right: 6px;"></i>VR Cockpit 01</strong></td>
+                            <td><span style="color: #94a3b8;">VR Simulation Bay</span></td>
+                            <td style="text-align: right;"><strong style="color: #f8fafc; font-size: 0.95rem;">&#8377;200</strong><span style="font-size: 0.78rem; color: #94a3b8;">/hr</span></td>
+                            <td style="text-align: center;"><span class="status-pill available">AVAILABLE</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Station ST-05 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge-id">ST-06</span></td>
+                            <td><strong style="color: #f8fafc;"><i class="fa-solid fa-gauge-high" style="color: var(--accent-amber); margin-right: 6px;"></i>Racing Pod 01</strong></td>
+                            <td><span style="color: #94a3b8;">Racing Simulator</span></td>
+                            <td style="text-align: right;"><strong style="color: #f8fafc; font-size: 0.95rem;">&#8377;250</strong><span style="font-size: 0.78rem; color: #94a3b8;">/hr</span></td>
+                            <td style="text-align: center;"><span class="status-pill available">AVAILABLE</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Station ST-06 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge-id">ST-07</span></td>
+                            <td><strong style="color: #f8fafc;"><i class="fa-solid fa-desktop" style="color: var(--accent-primary); margin-right: 6px;"></i>Station Gama(RTX 5090)</strong></td>
+                            <td><span style="color: #94a3b8;">PC Gaming Zone</span></td>
+                            <td style="text-align: right;"><strong style="color: #f8fafc; font-size: 0.95rem;">&#8377;200</strong><span style="font-size: 0.78rem; color: #94a3b8;">/hr</span></td>
+                            <td style="text-align: center;"><span class="status-pill available">AVAILABLE</span></td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-table-delete" onclick="showToast('Station ST-07 deleted', 'info')"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="navbar-brand" style="margin-bottom: 1rem;">
+                    <div class="brand-icon-wrap"><i class="fa-solid fa-gamepad"></i></div>
+                    <span>CYBER<span class="brand-span">GRID</span></span>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                    Next-gen esports lounge & gaming café booking platform. Book high-end PCs and consoles, order food to your desk, and compete in tournaments.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="booking.aspx">Book Station</a></li>
+                    <li><a href="games.aspx">Game Library</a></li>
+                    <li><a href="food.aspx">Café & Snacks</a></li>
+                    <li><a href="memberships.aspx">VIP Memberships</a></li>
+                    <li><a href="tournaments.aspx">Tournaments</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Gaming Arenas</h4>
+                <ul class="footer-links">
+                    <li><a href="booking.aspx">RTX 5090 VIP Zone</a></li>
+                    <li><a href="booking.aspx">PlayStation 5 Lounges</a></li>
+                    <li><a href="booking.aspx">Xbox Series X Arena</a></li>
+                    <li><a href="booking.aspx">Board & Card Games</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Arena Location</h4>
+                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.8;">
+                    <i class="fa-solid fa-location-dot" style="color: var(--accent-primary); margin-right: 8px;"></i> CyberGrid Esports Arena, MG Road<br />
+                    <i class="fa-solid fa-clock" style="color: var(--accent-primary); margin-right: 8px;"></i> Open 24/7 (365 Days)<br />
+                    <i class="fa-solid fa-phone" style="color: var(--accent-primary); margin-right: 8px;"></i> +91 98765 43210
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 CyberGrid Gaming Café. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Set today's date in booking input
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            const dateInput = document.getElementById('demoDate');
+            if (dateInput) dateInput.value = today;
+            updatePreviewRate();
+        });
+
+        function updatePreviewRate() {
+            const rate = parseInt(document.getElementById('demoStationSelect').value) || 250;
+            const hours = parseInt(document.getElementById('demoDuration').value) || 2;
+            const total = rate * hours;
+
+            document.getElementById('demoRateDisplay').innerHTML = `&#8377;${rate}&nbsp;<span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">/ hr</span>`;
+            document.getElementById('demoTotalDisplay').innerHTML = `&#8377;${total}`;
+        }
+
+        function handlePreviewBooking() {
+            const name = document.getElementById('demoCustomerName').value;
+            const station = document.getElementById('demoStationSelect').options[document.getElementById('demoStationSelect').selectedIndex].text;
+            const date = document.getElementById('demoDate').value;
+            const time = document.getElementById('demoTimeSlot').value;
+            const rate = parseInt(document.getElementById('demoStationSelect').value);
+            const hours = parseInt(document.getElementById('demoDuration').value);
+            const total = rate * hours;
+
+            showToast(`Booking Confirmed! Station reserved for ${name} (Total: ₹${total})`, 'success');
+        }
+    </script>
+</body>
+</html>
