@@ -99,13 +99,38 @@ namespace GAMIING_CAFE
         {
         }
 
-
-        protected void rptBookings_ItemCommand(object source, RepeaterCommandEventArgs e)
+protected void rptBookings_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            if (e.CommandName == "cmd_delete")
+            {
+                int bookingId = Convert.ToInt32(e.CommandArgument);
+                getcon();
+                cmd = new SqlCommand("delete from tbl_booking where booking_id=" + bookingId, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                fillcounts();
+                fillbookings();
+
+                Response.Write("<script>alert('Booking #" + bookingId + " deleted successfully!');</script>");
+            }
         }
 
         protected void rptStations_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            if (e.CommandName == "cmd_del_station")
+            {
+                int stationId = Convert.ToInt32(e.CommandArgument);
+                getcon();
+                cmd = new SqlCommand("delete from tbl_station where station_id=" + stationId, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                fillcounts();
+                fillstations();
+
+                Response.Write("<script>alert('Station deleted successfully!');</script>");
+            }
         }
     }
 }
