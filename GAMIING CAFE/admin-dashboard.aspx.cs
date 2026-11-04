@@ -94,12 +94,34 @@ namespace GAMIING_CAFE
             con.Close();
         }
 
-        
         protected void btnAddStation_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtNewStationName.Text.Trim()) || string.IsNullOrEmpty(txtNewStationRate.Text.Trim()))
+            {
+                Response.Write("<script>alert('Please fill all station fields!');</script>");
+                return;
+            }
+
+            getcon();
+            string sName = txtNewStationName.Text.Trim();
+            int cId = Convert.ToInt32(drpNewStationCat.SelectedValue);
+            int rate = Convert.ToInt32(txtNewStationRate.Text.Trim());
+            string status = drpNewStationStatus.SelectedValue;
+
+            cmd = new SqlCommand("insert into tbl_station(cat_id,station_name,rate_per_hour,status) values(" + cId + ",'" + sName + "'," + rate + ",'" + status + "')", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            txtNewStationName.Text = "";
+            txtNewStationRate.Text = "";
+
+            fillcounts();
+            fillstations();
+
+            Response.Write("<script>alert('New Station added successfully!');</script>");
         }
 
-protected void rptBookings_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void rptBookings_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "cmd_delete")
             {
