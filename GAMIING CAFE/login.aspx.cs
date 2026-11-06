@@ -48,7 +48,18 @@ namespace GAMIING_CAFE
                 string role = ds.Tables[0].Rows[0]["role"].ToString().ToLower();
                 con.Close();
 
-                Response.Redirect("customer-dashboard.aspx");
+                if (role == "admin")
+                {
+                    Response.Redirect("admin-dashboard.aspx");
+                }
+                else if (role == "staff")
+                {
+                    Response.Redirect("staff-dashboard.aspx");
+                }
+                else
+                {
+                    Response.Redirect("customer-dashboard.aspx");
+                }
             }
             else
             {
