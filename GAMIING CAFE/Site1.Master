@@ -33,7 +33,7 @@
 
         <asp:ContentPlaceHolder ID="FooterContent" runat="server">
             <footer>
-                <div class="footer-content">
+                <div class="footer-grid">
                     <div class="footer-col">
                         <div class="navbar-brand" style="margin-bottom: 1rem;">
                             <div class="brand-icon-wrap"><i class="fa-solid fa-gamepad"></i></div>
