@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="CyberGridDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="CyberGridDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbl_food">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="food_id" type="xs:int" minOccurs="0" />
+              <xs:element name="food_name" type="xs:string" minOccurs="0" />
+              <xs:element name="category" type="xs:string" minOccurs="0" />
+              <xs:element name="price" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_booking">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="booking_id" type="xs:int" minOccurs="0" />
+              <xs:element name="user_name" type="xs:string" minOccurs="0" />
+              <xs:element name="station_name" type="xs:string" minOccurs="0" />
+              <xs:element name="booking_date" type="xs:string" minOccurs="0" />
+              <xs:element name="time_slot" type="xs:string" minOccurs="0" />
+              <xs:element name="duration_hours" type="xs:int" minOccurs="0" />
+              <xs:element name="total_amount" type="xs:int" minOccurs="0" />
+              <xs:element name="status" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
