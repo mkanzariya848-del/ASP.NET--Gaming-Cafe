@@ -35,6 +35,12 @@ namespace GAMIING_CAFE
         protected global::System.Web.UI.WebControls.Button btnQuickView7;
         protected global::System.Web.UI.WebControls.Button btnQuickPdf7;
 
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReportHeading;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReportSub;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRptFileName;
+        protected global::System.Web.UI.WebControls.Button btnCurrentPdf;
+        protected global::System.Web.UI.WebControls.GridView gvReportData;
+
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptsReport;
     }

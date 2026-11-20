@@ -167,8 +167,119 @@
 
         </div>
 
-        <!-- Crystal Report Viewer Container -->
+        <!-- ========================================== -->
+        <!-- Custom CSS for Live Report Table & Viewer   -->
+        <!-- ========================================== -->
         <style>
+            /* Custom Table Styling for Live Report View */
+            .report-display-card {
+                background: #0f172a;
+                border: 1px solid rgba(56, 189, 248, 0.25);
+                border-radius: var(--radius-lg);
+                padding: 1.75rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .report-table-wrap {
+                width: 100%;
+                overflow-x: auto;
+                border-radius: var(--radius-md);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                background: #090e17;
+                margin-top: 1rem;
+            }
+
+            .report-table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                font-family: var(--font-body);
+                font-size: 0.88rem;
+                text-align: left;
+            }
+
+            .report-table th {
+                background: #141f36 !important;
+                color: #38bdf8 !important;
+                padding: 13px 16px !important;
+                font-weight: 700 !important;
+                font-size: 0.78rem !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.05em !important;
+                border-bottom: 2px solid rgba(56, 189, 248, 0.35) !important;
+                border-top: none !important;
+                border-left: none !important;
+                border-right: none !important;
+                white-space: nowrap !important;
+            }
+
+            .report-table td {
+                padding: 12px 16px !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+                border-top: none !important;
+                border-left: none !important;
+                border-right: none !important;
+                color: #e2e8f0 !important;
+                vertical-align: middle !important;
+                white-space: nowrap !important;
+            }
+
+            .report-table tr:nth-child(even) td {
+                background: rgba(255, 255, 255, 0.015) !important;
+            }
+
+            .report-table tr:hover td {
+                background: rgba(56, 189, 248, 0.07) !important;
+                color: #ffffff !important;
+            }
+
+            .badge-status {
+                padding: 4px 10px;
+                border-radius: 6px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                letter-spacing: 0.4px;
+            }
+            .badge-status-confirmed,
+            .badge-status-available,
+            .badge-status-active {
+                background: rgba(16, 185, 129, 0.15);
+                color: #10b981;
+                border: 1px solid rgba(16, 185, 129, 0.35);
+            }
+            .badge-status-pending,
+            .badge-status-maintenance {
+                background: rgba(245, 158, 11, 0.15);
+                color: #f59e0b;
+                border: 1px solid rgba(245, 158, 11, 0.35);
+            }
+            .badge-status-admin {
+                background: rgba(168, 85, 247, 0.15);
+                color: #c084fc;
+                border: 1px solid rgba(168, 85, 247, 0.35);
+            }
+            .badge-id {
+                font-family: monospace;
+                font-size: 0.82rem;
+                font-weight: 700;
+                color: #38bdf8;
+                background: rgba(56, 189, 248, 0.1);
+                border: 1px solid rgba(56, 189, 248, 0.25);
+                padding: 3px 8px;
+                border-radius: 6px;
+                display: inline-block;
+            }
+            .empty-data-row td {
+                padding: 2.5rem !important;
+                text-align: center !important;
+                color: var(--text-muted) !important;
+                font-size: 0.95rem !important;
+            }
+
             /* Protect Crystal Report Viewer from site-wide styles */
             #MainContent_CrystalReportViewer1,
             #MainContent_CrystalReportViewer1 * {
@@ -215,8 +326,61 @@
                 color: #000000 !important;
             }
         </style>
-        <div class="glass-card" style="padding: 1.5rem; min-height: 500px; overflow-x: auto; background: #ffffff; color: #111827; border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" ToolPanelView="None" Width="100%" Height="850px" BestFitPage="false" HasCrystalLogo="false" HasToggleGroupTreeButton="false" HasToggleParameterPanelButton="false" />
+
+        <!-- ========================================== -->
+        <!-- Dynamic Live Data Table Section (As Requested) -->
+        <!-- ========================================== -->
+        <div id="reportDisplayArea" class="report-display-card">
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 1.25rem; margin-bottom: 1.25rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></span>
+                        <h3 id="lblReportHeading" runat="server" style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin: 0;">
+                            1. Station Bookings Report
+                        </h3>
+                    </div>
+                    <span id="lblReportSub" runat="server" style="font-size: 0.85rem; color: var(--text-muted); font-family: monospace;">
+                        Database Table: tbl_booking | Crystal Report: booking.rpt | 4 Records Loaded
+                    </span>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <asp:Button ID="btnCurrentPdf" runat="server" Text="Download Crystal Report (PDF)" OnClick="btnCurrentPdf_Click" CssClass="btn-cyber" style="padding: 9px 16px; font-size: 0.88rem;" ToolTip="Download formatted SAP Crystal Report PDF" />
+                    <button type="button" onclick="window.print();" class="btn-outline" style="padding: 9px 15px; font-size: 0.88rem;">
+                        <i class="fa-solid fa-print"></i> Print Table
+                    </button>
+                </div>
+            </div>
+
+            <!-- The GridView Table with Real Database Rows -->
+            <div class="report-table-wrap">
+                <asp:GridView ID="gvReportData" runat="server" AutoGenerateColumns="true" CssClass="report-table" GridLines="None"
+                    EmptyDataText="No records found in this table." EmptyDataRowStyle-CssClass="empty-data-row" OnRowDataBound="gvReportData_RowDataBound">
+                </asp:GridView>
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SAP Crystal Report Viewer Control (.rpt)  -->
+        <!-- ========================================== -->
+        <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem; border-radius: var(--radius-lg); background: #ffffff; color: #111827; box-shadow: var(--shadow-lg);">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.85rem; margin-bottom: 1rem;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-file-invoice" style="color: #0284c7; font-size: 1.2rem;"></i>
+                    <h4 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 0;">
+                        SAP Crystal Report Viewer Control (<span id="lblRptFileName" runat="server">booking.rpt</span>)
+                    </h4>
+                </div>
+                <span style="font-size: 0.8rem; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 9999px; font-weight: 600;">
+                    Official .rpt Engine Preview
+                </span>
+            </div>
+
+            <div style="overflow-x: auto; min-height: 400px; display: flex; justify-content: center; background: #f8fafc; padding: 1rem; border-radius: 8px; border: 1px solid #cbd5e1;">
+                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" ToolPanelView="None" Width="100%" Height="750px" BestFitPage="false" HasCrystalLogo="false" HasToggleGroupTreeButton="false" HasToggleParameterPanelButton="false" />
+            </div>
         </div>
 
     </section>
