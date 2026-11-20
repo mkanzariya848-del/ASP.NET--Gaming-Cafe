@@ -1,4 +1,4 @@
-<%@ Page Title="Reports - CyberGrid Gaming Cafe" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="report.aspx.cs" Inherits="GAMIING_CAFE.ReportPage" %>
+<%@ Page Title="Reports - CyberGrid Gaming Cafe" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="report.aspx.cs" Inherits="GAMIING_CAFE.ReportPage" EnableViewState="false" %>
 <%@ Register Assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 
 <asp:Content ID="MetaContentReport" ContentPlaceHolderID="MetaContent" runat="server">
@@ -168,8 +168,8 @@
         </div>
 
         <!-- Crystal Report Viewer Container -->
-        <div class="glass-card" style="padding: 1.5rem; overflow-x: auto; background: #ffffff; color: #111827; border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" ToolPanelView="None" Width="100%" HasCrystalLogo="false" HasToggleGroupTreeButton="false" HasToggleParameterPanelButton="false" />
+        <div class="glass-card" style="padding: 1.5rem; min-height: 500px; overflow-x: auto; background: #ffffff; color: #111827; border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" ToolPanelView="None" Width="100%" Height="850px" BestFitPage="false" HasCrystalLogo="false" HasToggleGroupTreeButton="false" HasToggleParameterPanelButton="false" />
         </div>
 
     </section>

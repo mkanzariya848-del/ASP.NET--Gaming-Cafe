@@ -32,9 +32,26 @@ namespace GAMIING_CAFE
             con.Open();
         }
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            if (Session["CurrentReport"] != null)
+            {
+                showReport(Session["CurrentReport"].ToString());
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Page_Unload(object sender, EventArgs e)
+        {
+            if (cr != null)
+            {
+                cr.Close();
+                cr.Dispose();
+            }
         }
 
         string getQuery(string reportType, out string rptFileName, out string exportTitle)
@@ -163,13 +180,14 @@ namespace GAMIING_CAFE
 
         void showReport(string reportType)
         {
+            Session["CurrentReport"] = reportType;
             string rptFile, title;
             string q = getQuery(reportType, out rptFile, out title);
             string path = Server.MapPath("~/" + rptFile);
 
             if (!File.Exists(path))
             {
-                Response.Write("<script>alert('Report file " + rptFile + " not found! Please create " + rptFile + " in Visual Studio');</script>");
+                Response.Write("<script>alert('Report file " + rptFile + " not found!');</script>");
                 return;
             }
 
@@ -177,28 +195,23 @@ namespace GAMIING_CAFE
             da = new SqlDataAdapter(q, con);
             ds = new DataSet();
             da.Fill(ds);
+            con.Close();
 
             try
             {
+                if (cr != null)
+                {
+                    cr.Close();
+                    cr.Dispose();
+                }
+                cr = new ReportDocument();
                 cr.Load(path);
                 cr.SetDataSource(ds.Tables[0]);
-                cr.Refresh();
                 CrystalReportViewer1.ReportSource = cr;
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("has no tables"))
-                {
-                    Response.Write("<script>alert('Step 4 & 5 Notice: " + rptFile + " has no tables linked yet! Please open " + rptFile + " in Visual Studio -> Database Expert -> select data.xml to add fields.');</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('Crystal Report: " + ex.Message.Replace("'", "") + "');</script>");
-                }
-            }
-            finally
-            {
-                con.Close();
+                Response.Write("<script>alert('Crystal Report: " + ex.Message.Replace("'", "") + "');</script>");
             }
         }
 
