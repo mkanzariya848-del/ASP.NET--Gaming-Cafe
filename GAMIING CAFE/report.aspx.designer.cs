@@ -11,76 +11,31 @@ namespace GAMIING_CAFE
 {
     public partial class ReportPage
     {
-        /// <summary>
-        /// MetaContentReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MetaContentReport;
-
-        /// <summary>
-        /// MainContentReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContentReport;
 
-        /// <summary>
-        /// drpReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpReport;
-
-        /// <summary>
-        /// btn_xml control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_xml;
-
-        /// <summary>
-        /// btn_view control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_view;
-
-        /// <summary>
-        /// btn_export control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_export;
+        protected global::System.Web.UI.WebControls.Button btn_xml_all;
 
-        /// <summary>
-        /// CrystalReportViewer1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnQuickView1;
+        protected global::System.Web.UI.WebControls.Button btnQuickPdf1;
+        protected global::System.Web.UI.WebControls.Button btnQuickView2;
+        protected global::System.Web.UI.WebControls.Button btnQuickPdf2;
+        protected global::System.Web.UI.WebControls.Button btnQuickView3;
+        protected global::System.Web.UI.WebControls.Button btnQuickPdf3;
+        protected global::System.Web.UI.WebControls.Button btnQuickView4;
+        protected global::System.Web.UI.WebControls.Button btnQuickPdf4;
+        protected global::System.Web.UI.WebControls.Button btnQuickView5;
+        protected global::System.Web.UI.WebControls.Button btnQuickPdf5;
+        protected global::System.Web.UI.WebControls.Button btnQuickView6;
+        protected global::System.Web.UI.WebControls.Button btnQuickPdf6;
+        protected global::System.Web.UI.WebControls.Button btnQuickView7;
+        protected global::System.Web.UI.WebControls.Button btnQuickPdf7;
+
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
-
-        /// <summary>
-        /// ScriptsReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptsReport;
     }
 }

@@ -126,6 +126,13 @@
     </Content>
     <Content Include="Web.config" />
     <Content Include="report.aspx" />
+    <Content Include="booking.rpt" />
+    <Content Include="food.rpt" />
+    <Content Include="station.rpt" />
+    <Content Include="user.rpt" />
+    <Content Include="games.rpt" />
+    <Content Include="tournament.rpt" />
+    <Content Include="billing.rpt" />
     <Content Include="data.xml" />
     <Content Include="Site1.Master" />
     <Content Include="index.aspx" />
