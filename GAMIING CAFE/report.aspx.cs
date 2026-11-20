@@ -45,15 +45,6 @@ namespace GAMIING_CAFE
 
         }
 
-        protected void Page_Unload(object sender, EventArgs e)
-        {
-            if (cr != null)
-            {
-                cr.Close();
-                cr.Dispose();
-            }
-        }
-
         string getQuery(string reportType, out string rptFileName, out string exportTitle)
         {
             switch (reportType.ToLower())

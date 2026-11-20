@@ -168,6 +168,53 @@
         </div>
 
         <!-- Crystal Report Viewer Container -->
+        <style>
+            /* Protect Crystal Report Viewer from site-wide styles */
+            #MainContent_CrystalReportViewer1,
+            #MainContent_CrystalReportViewer1 * {
+                box-sizing: content-box !important;
+            }
+            #MainContent_CrystalReportViewer1 table {
+                width: auto !important;
+                border-collapse: separate !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: transparent !important;
+                border: none !important;
+            }
+            #MainContent_CrystalReportViewer1 tr,
+            #MainContent_CrystalReportViewer1 thead,
+            #MainContent_CrystalReportViewer1 tbody {
+                background: transparent !important;
+                border: none !important;
+            }
+            #MainContent_CrystalReportViewer1 th,
+            #MainContent_CrystalReportViewer1 td {
+                padding: 0 !important;
+                white-space: normal !important;
+                color: initial !important;
+                background: transparent !important;
+                border: none !important;
+                vertical-align: top !important;
+            }
+            #MainContent_CrystalReportViewer1 img {
+                max-width: none !important;
+                height: auto !important;
+                display: inline-block !important;
+            }
+            #MainContent_CrystalReportViewer1 input[type="text"],
+            #MainContent_CrystalReportViewer1 select {
+                background: #ffffff !important;
+                color: #000000 !important;
+                border: 1px solid #7f9db9 !important;
+                padding: 2px 4px !important;
+                height: auto !important;
+                border-radius: 2px !important;
+            }
+            #MainContent_CrystalReportViewer1 .crystalstyle {
+                color: #000000 !important;
+            }
+        </style>
         <div class="glass-card" style="padding: 1.5rem; min-height: 500px; overflow-x: auto; background: #ffffff; color: #111827; border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
             <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" ToolPanelView="None" Width="100%" Height="850px" BestFitPage="false" HasCrystalLogo="false" HasToggleGroupTreeButton="false" HasToggleParameterPanelButton="false" />
         </div>
