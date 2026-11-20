@@ -216,7 +216,6 @@ namespace GAMIING_CAFE
             // 2. Update Header Titles & Badges
             lblReportHeading.InnerText = displayName;
             lblReportSub.InnerText = "Database Table: " + tableName + " | Crystal Report: " + rptFile + " | " + ds.Tables[0].Rows.Count + " Records Loaded";
-            lblRptFileName.InnerText = rptFile;
 
             // 3. Bind Crystal Report Viewer
             if (File.Exists(path))

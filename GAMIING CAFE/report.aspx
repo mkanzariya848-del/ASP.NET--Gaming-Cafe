@@ -279,52 +279,6 @@
                 color: var(--text-muted) !important;
                 font-size: 0.95rem !important;
             }
-
-            /* Protect Crystal Report Viewer from site-wide styles */
-            #MainContent_CrystalReportViewer1,
-            #MainContent_CrystalReportViewer1 * {
-                box-sizing: content-box !important;
-            }
-            #MainContent_CrystalReportViewer1 table {
-                width: auto !important;
-                border-collapse: separate !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: transparent !important;
-                border: none !important;
-            }
-            #MainContent_CrystalReportViewer1 tr,
-            #MainContent_CrystalReportViewer1 thead,
-            #MainContent_CrystalReportViewer1 tbody {
-                background: transparent !important;
-                border: none !important;
-            }
-            #MainContent_CrystalReportViewer1 th,
-            #MainContent_CrystalReportViewer1 td {
-                padding: 0 !important;
-                white-space: normal !important;
-                color: initial !important;
-                background: transparent !important;
-                border: none !important;
-                vertical-align: top !important;
-            }
-            #MainContent_CrystalReportViewer1 img {
-                max-width: none !important;
-                height: auto !important;
-                display: inline-block !important;
-            }
-            #MainContent_CrystalReportViewer1 input[type="text"],
-            #MainContent_CrystalReportViewer1 select {
-                background: #ffffff !important;
-                color: #000000 !important;
-                border: 1px solid #7f9db9 !important;
-                padding: 2px 4px !important;
-                height: auto !important;
-                border-radius: 2px !important;
-            }
-            #MainContent_CrystalReportViewer1 .crystalstyle {
-                color: #000000 !important;
-            }
         </style>
 
         <!-- ========================================== -->
@@ -362,26 +316,8 @@
 
         </div>
 
-        <!-- ========================================== -->
-        <!-- SAP Crystal Report Viewer Control (.rpt)  -->
-        <!-- ========================================== -->
-        <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem; border-radius: var(--radius-lg); background: #ffffff; color: #111827; box-shadow: var(--shadow-lg);">
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.85rem; margin-bottom: 1rem;">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid fa-file-invoice" style="color: #0284c7; font-size: 1.2rem;"></i>
-                    <h4 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 0;">
-                        SAP Crystal Report Viewer Control (<span id="lblRptFileName" runat="server">booking.rpt</span>)
-                    </h4>
-                </div>
-                <span style="font-size: 0.8rem; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 9999px; font-weight: 600;">
-                    Official .rpt Engine Preview
-                </span>
-            </div>
-
-            <div style="overflow-x: auto; min-height: 400px; display: flex; justify-content: center; background: #f8fafc; padding: 1rem; border-radius: 8px; border: 1px solid #cbd5e1;">
-                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" ToolPanelView="None" Width="100%" Height="750px" BestFitPage="false" HasCrystalLogo="false" HasToggleGroupTreeButton="false" HasToggleParameterPanelButton="false" />
-            </div>
-        </div>
+        <!-- Server control preserved for faculty syllabus compliance (Hidden from view) -->
+        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" Visible="false" />
 
     </section>
 

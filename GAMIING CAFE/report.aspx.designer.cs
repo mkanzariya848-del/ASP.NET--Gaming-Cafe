@@ -37,7 +37,6 @@ namespace GAMIING_CAFE
 
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReportHeading;
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReportSub;
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRptFileName;
         protected global::System.Web.UI.WebControls.Button btnCurrentPdf;
         protected global::System.Web.UI.WebControls.GridView gvReportData;
 
