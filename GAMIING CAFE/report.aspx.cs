@@ -187,7 +187,14 @@ namespace GAMIING_CAFE
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Crystal Report: " + ex.Message.Replace("'", "") + "');</script>");
+                if (ex.Message.Contains("has no tables"))
+                {
+                    Response.Write("<script>alert('Step 4 & 5 Notice: " + rptFile + " has no tables linked yet! Please open " + rptFile + " in Visual Studio -> Database Expert -> select data.xml to add fields.');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Crystal Report: " + ex.Message.Replace("'", "") + "');</script>");
+                }
             }
             finally
             {
@@ -222,7 +229,14 @@ namespace GAMIING_CAFE
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Crystal Report: " + ex.Message.Replace("'", "") + "');</script>");
+                if (ex.Message.Contains("has no tables"))
+                {
+                    Response.Write("<script>alert('Step 4 & 5 Notice: " + rptFile + " has no tables linked yet! Please open " + rptFile + " in Visual Studio -> Database Expert -> select data.xml to add fields.');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Crystal Report: " + ex.Message.Replace("'", "") + "');</script>");
+                }
             }
             finally
             {
