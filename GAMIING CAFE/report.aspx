@@ -10,10 +10,10 @@
     <section class="section" style="padding-top: 3rem; padding-bottom: 4rem;">
         
         <div class="section-title-wrap">
-            <span class="section-tag"><i class="fa-solid fa-chart-pie"></i> SAP Reporting Module</span>
-            <h2 class="section-title">7 CRYSTAL REPORTS</h2>
+            <span class="section-tag"><i class="fa-solid fa-chart-pie"></i> Reports &amp; Analytics</span>
+            <h2 class="section-title">GAMING CAFE REPORTS</h2>
             <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
-                Dynamic database reporting, XML schema generation, and PDF export powered by SAP Crystal Reports for Visual Studio.
+                Dynamic database reporting, XML schema generation, and PDF export powered by Crystal Reports.
             </p>
         </div>
 
