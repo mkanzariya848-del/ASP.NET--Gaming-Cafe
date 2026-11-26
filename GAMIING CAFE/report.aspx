@@ -13,7 +13,7 @@
             <span class="section-tag"><i class="fa-solid fa-chart-pie"></i> Reports &amp; Analytics</span>
             <h2 class="section-title">GAMING CAFE REPORTS</h2>
             <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
-                Dynamic database reporting, XML schema generation, and PDF export powered by Crystal Reports.
+                All-in-one reporting system for gaming stations, cafe orders, and billing summary.
             </p>
         </div>
 
