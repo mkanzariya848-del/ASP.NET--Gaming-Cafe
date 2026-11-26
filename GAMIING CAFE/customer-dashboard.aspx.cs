@@ -16,7 +16,7 @@ namespace GAMIING_CAFE
         SqlDataAdapter da;
         DataSet ds;
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {
@@ -109,11 +109,6 @@ namespace GAMIING_CAFE
                 else
                 {
                     trNoBookings.Visible = true;
-                    hfBookingId.Value = "0";
-                    hfStationName.Value = "No Active Station";
-                    hfDurationHours.Value = "0";
-                    hfTotalAmount.Value = "0";
-                    hfBookingStatus.Value = "None";
                 }
             }
             con.Close();

@@ -17,7 +17,7 @@ namespace GAMIING_CAFE
         SqlDataAdapter da;
         DataSet ds;
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {
@@ -25,9 +25,18 @@ namespace GAMIING_CAFE
             con.Open();
         }
 
+        void clear()
+        {
+            loginEmail.Text = "";
+            loginPassword.Text = "";
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -44,9 +53,11 @@ namespace GAMIING_CAFE
                 Session["user"] = ds.Tables[0].Rows[0]["name"].ToString();
                 Session["email"] = ds.Tables[0].Rows[0]["email"].ToString();
                 Session["role"] = ds.Tables[0].Rows[0]["role"].ToString();
+                Session["admin"] = ds.Tables[0].Rows[0]["email"].ToString();
 
                 string role = ds.Tables[0].Rows[0]["role"].ToString().ToLower();
                 con.Close();
+                clear();
 
                 if (role == "admin")
                 {

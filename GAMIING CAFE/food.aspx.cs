@@ -13,11 +13,10 @@ namespace GAMIING_CAFE
     public partial class FoodPage : System.Web.UI.Page
     {
         SqlConnection con;
-        SqlCommand cmd;
         SqlDataAdapter da;
         DataSet ds;
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {

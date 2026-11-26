@@ -15,7 +15,7 @@ namespace GAMIING_CAFE
         SqlConnection con;
         SqlCommand cmd;
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {

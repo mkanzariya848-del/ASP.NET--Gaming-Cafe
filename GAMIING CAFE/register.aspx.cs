@@ -14,8 +14,10 @@ namespace GAMIING_CAFE
     {
         SqlConnection con;
         SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {
@@ -30,11 +32,16 @@ namespace GAMIING_CAFE
             txtPhone.Text = "";
             txtPassword.Text = "";
             txtConfirmPassword.Text = "";
+            ddlRole.ClearSelection();
+            ddlMembership.ClearSelection();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+            }
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -46,11 +53,23 @@ namespace GAMIING_CAFE
             else
             {
                 getcon();
-                cmd = new SqlCommand("insert into tbl_user(name,email,phone,password,role) values('" + txtName.Text.Trim() + "','" + txtEmail.Text.Trim() + "','" + txtPhone.Text.Trim() + "','" + txtPassword.Text.Trim() + "','" + ddlRole.SelectedValue + "')", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                clear();
-                Response.Write("<script>alert('Registration Successful');window.location='login.aspx';</script>");
+                da = new SqlDataAdapter("select * from tbl_user where email='" + txtEmail.Text.Trim() + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    con.Close();
+                    Response.Write("<script>alert('Email already registered! Please login or use different email.');</script>");
+                }
+                else
+                {
+                    cmd = new SqlCommand("insert into tbl_user(name,email,phone,password,role) values('" + txtName.Text.Trim() + "','" + txtEmail.Text.Trim() + "','" + txtPhone.Text.Trim() + "','" + txtPassword.Text.Trim() + "','" + ddlRole.SelectedValue + "')", con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    clear();
+                    Response.Write("<script>alert('Record inserted successfully');window.location='login.aspx';</script>");
+                }
             }
         }
     }

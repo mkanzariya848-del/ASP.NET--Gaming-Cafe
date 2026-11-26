@@ -17,12 +17,20 @@ namespace GAMIING_CAFE
         SqlDataAdapter da;
         DataSet ds;
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {
             con = new SqlConnection(s);
             con.Open();
+        }
+
+        void clear()
+        {
+            txtNewStationName.Text = "";
+            txtNewStationRate.Text = "";
+            drpNewStationCat.ClearSelection();
+            drpNewStationStatus.ClearSelection();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -111,47 +119,45 @@ namespace GAMIING_CAFE
             cmd = new SqlCommand("insert into tbl_station(cat_id,station_name,rate_per_hour,status) values(" + cId + ",'" + sName + "'," + rate + ",'" + status + "')", con);
             cmd.ExecuteNonQuery();
             con.Close();
-
-            txtNewStationName.Text = "";
-            txtNewStationRate.Text = "";
+            clear();
 
             fillcounts();
             fillstations();
 
-            Response.Write("<script>alert('New Station added successfully!');</script>");
+            Response.Write("<script>alert('Record inserted successfully');</script>");
         }
 
         protected void rptBookings_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "cmd_delete")
+            if (e.CommandName == "cmd_delete" || e.CommandName == "cmd_del")
             {
                 int bookingId = Convert.ToInt32(e.CommandArgument);
                 getcon();
-                cmd = new SqlCommand("delete from tbl_booking where booking_id=" + bookingId, con);
+                cmd = new SqlCommand("delete from tbl_booking where booking_id='" + bookingId + "'", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 fillcounts();
                 fillbookings();
 
-                Response.Write("<script>alert('Booking #" + bookingId + " deleted successfully!');</script>");
+                Response.Write("<script>alert('Record deleted successfully');</script>");
             }
         }
 
         protected void rptStations_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "cmd_del_station")
+            if (e.CommandName == "cmd_del_station" || e.CommandName == "cmd_del")
             {
                 int stationId = Convert.ToInt32(e.CommandArgument);
                 getcon();
-                cmd = new SqlCommand("delete from tbl_station where station_id=" + stationId, con);
+                cmd = new SqlCommand("delete from tbl_station where station_id='" + stationId + "'", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 fillcounts();
                 fillstations();
 
-                Response.Write("<script>alert('Station deleted successfully!');</script>");
+                Response.Write("<script>alert('Record deleted successfully');</script>");
             }
         }
     }

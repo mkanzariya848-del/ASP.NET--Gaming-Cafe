@@ -17,7 +17,7 @@ namespace GAMIING_CAFE
         SqlDataAdapter da;
         DataSet ds;
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {
@@ -66,12 +66,12 @@ namespace GAMIING_CAFE
                 string nextStatus = currentStatus == "Available" ? "Occupied" : "Available";
 
                 getcon();
-                cmd = new SqlCommand("update tbl_station set status='" + nextStatus + "' where station_id=" + stationId, con);
+                cmd = new SqlCommand("update tbl_station set status='" + nextStatus + "' where station_id='" + stationId + "'", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 fillFloorStations();
-                Response.Write("<script>alert('Station status updated to " + nextStatus + "');</script>");
+                Response.Write("<script>alert('Record updated successfully');</script>");
             }
         }
 
@@ -81,12 +81,12 @@ namespace GAMIING_CAFE
             {
                 int bookingId = Convert.ToInt32(e.CommandArgument);
                 getcon();
-                cmd = new SqlCommand("update tbl_booking set status='Completed' where booking_id=" + bookingId, con);
+                cmd = new SqlCommand("update tbl_booking set status='Completed' where booking_id='" + bookingId + "'", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 fillBookings();
-                Response.Write("<script>alert('Booking marked as Completed');</script>");
+                Response.Write("<script>alert('Record updated successfully');</script>");
             }
         }
     }

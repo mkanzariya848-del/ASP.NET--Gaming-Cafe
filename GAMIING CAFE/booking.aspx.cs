@@ -17,12 +17,20 @@ namespace GAMIING_CAFE
         SqlDataAdapter da;
         DataSet ds;
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {
             con = new SqlConnection(s);
             con.Open();
+        }
+
+        void clear()
+        {
+            txtCustomerName.Text = "";
+            txtDate.Text = "";
+            drpTimeSlot.ClearSelection();
+            drpDuration.ClearSelection();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -108,8 +116,9 @@ namespace GAMIING_CAFE
             cmd = new SqlCommand("insert into tbl_booking(user_name,station_name,booking_date,time_slot,duration_hours,total_amount,status) values('" + customerName + "','" + stationName + "','" + bookingDate + "','" + timeSlot + "'," + hours + "," + total + ",'Confirmed')", con);
             cmd.ExecuteNonQuery();
             con.Close();
+            clear();
 
-            Response.Write("<script>alert('Booking successfully confirmed for " + stationName + "!');window.location='customer-dashboard.aspx';</script>");
+            Response.Write("<script>alert('Record inserted successfully');window.location='customer-dashboard.aspx';</script>");
         }
     }
 }

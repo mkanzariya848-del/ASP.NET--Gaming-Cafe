@@ -22,7 +22,7 @@ namespace GAMIING_CAFE
 
         ReportDocument cr = new ReportDocument();
 
-        string s = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getcon()
         {
